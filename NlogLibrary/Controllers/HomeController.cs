@@ -15,7 +15,22 @@ namespace NlogLibrary.Controllers
 
         public IActionResult Index()
         {
+            int value1 = 5;
+            int value2 = 0;
+            int result;
+            try
+            {
+                result = value1 / value2;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+
+            }
+
             _logger.LogInformation("Hello, this is the index!");
+            _logger.LogWarning("Warning");
+            _logger.LogError("Error");
             return View();
         }
 
